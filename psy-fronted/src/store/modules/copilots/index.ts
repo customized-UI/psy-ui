@@ -130,7 +130,7 @@ export const useCopilots: any = defineStore("copilots-store", {
       first: {
         url: "/tryapi/sdk/p/247598f48799e1e33154/a/1611fbd1cbca86423d46/r",
         headers: {
-          'Authorization': "Bearer sk-bec0a083adfd550b94bc03af07dd623a",
+          'Authorization': "",
           "Content-Type": "application/json",
         },
         data: {

@@ -18,18 +18,13 @@ export default defineConfig({
     port: 3008,
     open: true,
     strictPort: false,
-    https: false, // https 设置为true 线上环境应为true
+    https: false, 
     proxy: {
       '/corapi': {
-        target: 'https://rebyte.ai/api/', // http://192.168.1.1:20/
+        target: 'https://rebyte.ai/api/',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/corapi/, '') // 路径重写
       },
-      // '/api': {
-      //   target: 'http://39.108.51.168:3003/api/', // http://192.168.1.1:20/
-      //   changeOrigin: true,
-      //   rewrite: (path) => path.replace(/^\/api/, '') // 路径重写
-      // },
     }
   },
   build: {

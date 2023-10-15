@@ -79,10 +79,6 @@ const buildData = async () => {
               text.value = text.value + json.content.tokens.text
               await subBack.value.scrollToBottom()
             } else if (json.type == 'block_execution') {
-              // if(json.content.block_name == 'OUTPUT') {
-              //   text.value = await json.content.execution[0][0]['value']['content']
-              // }
-              // console.log(json.content, '12312321')
             } else if (json.type == 'final') {
               historyData.value = { ...historyData.value, title: title.value, role: role.value, grade: grade.value, text: text.value }
               isLoading.value = await false
@@ -112,22 +108,6 @@ const buildData = async () => {
       } finally {
         reader.releaseLock(); // (E)
       }
-      // if (res.run && res.run.status && res.run.status.run == 'succeeded') {
-      //     for (let i of res["run"]["traces"]) {
-      //     if (i[0].indexOf("OUTPUT") > -1) {
-      //         if (i[1] && i[1].length) {
-      //             text.value = await i[1][0][0]["value"]["content"]
-      //             historyData.value = { ...historyData.value, title: title.value, role: role.value, grade: grade.value, text: i[1][0][0]["value"]["content"] }
-      //             isLoading.value = await false
-      //             // await subBack.value.scrollToBottom()
-      //             await addOtherHistories({ role: role.value, title: title.value, content: i[1][0][0]["value"]["content"], grade: grade.value, type: route.name })
-      //         }
-      //     }
-      //     }
-      // } else {
-      //     isLoading.value = await false
-      //     message.error('请求失败,请稍后再试')
-      // }
     }
   ).catch(error => {
     isLoading.value = false
@@ -249,26 +229,6 @@ const toFetchOther = async (type: string) => {
     } finally {
       reader.releaseLock(); // (E)
     }
-    // if (res.run && res.run.status && res.run.status.run == 'succeeded') {
-    //     for (let i of res["run"]["traces"]) {
-    //       if (i[0].indexOf("OUTPUT") > -1) {
-    //           if (i[1] && i[1].length) {
-    //               if (type == 'translate') {
-    //                   translateText.value = await i[1][0][0]["value"]["content"]
-    //                   historyData.value = { ...historyData.value, translateText: i[1][0][0]["value"]["content"] }
-    //               } else if (type == 'answer') {
-    //                   answerText.value = await i[1][0][0]["value"]["content"]
-    //                   historyData.value = { ...historyData.value, answerText: i[1][0][0]["value"]["content"] }
-    //               }
-    //               await subBack.value.scrollToBottom()
-    //               isLoading.value = await false
-    //           }
-    //       }
-    //     }
-    // } else {
-    //     isLoading.value = await false
-    //     message.error('请求失败,请稍后再试')
-    // }
   }).catch(error => {
     isLoading.value = false
     message.error('连接超时,请稍后再试')
@@ -308,7 +268,6 @@ onMounted(async () => {
 })
 
 onUnmounted(() => {
-  console.log('Likaile')
   controller.abort();
 })
 
