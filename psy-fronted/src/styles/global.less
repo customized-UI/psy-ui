@@ -1,0 +1,39 @@
+:root {
+	--color-secondary: #715fde;
+	--color-error: #ef4146;
+	--gradient-primary: linear-gradient(90deg,#a29bd4,#989fdd);
+	--text-primary: #202123;
+	--text-default: #353740;
+	--text-secondary: #6e6e80;
+	--text-disabled: #acacbe;
+	--text-error: var(--color-error);
+}
+
+html,
+body,
+#app {
+	height: 100%;
+	scroll-behavior: smooth;
+}
+
+body {
+	padding-bottom: constant(safe-area-inset-bottom);
+	padding-bottom: env(safe-area-inset-bottom);
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+
+.n-message {
+	background: #000 !important;
+	color: #fff !important;
+	border-radius: 6px !important;
+	.n-base-icon {
+		color: #fff !important;
+	}
+}
